@@ -1,0 +1,136 @@
+/* General styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #2c3e50; /* Dark background */
+  color: white;
+}
+
+/* Dashboard container with flex layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent scrolling during animation */
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px; /* Fixed width */
+  background-color: rgba(77, 74, 74, 0.3); /* Semi-transparent dark */
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-100%); /* Initially off-screen */
+  animation: slideInLeft 1.5s ease-out forwards;
+}
+
+/* Sidebar Animation (Coming from Left) */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Sidebar content */
+.sidebar h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.sidebar li a:hover {
+  background-color: rgba(214, 203, 203, 0.7);
+}
+
+/* Main content styling */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: rgba(77, 74, 74, 0.3);
+  margin-left: 250px; /* Offset by sidebar width */
+  transform: translateX(100%); /* Initially off-screen */
+  opacity: 0;
+  animation: slideInRight 2.5s ease-out forwards; /* Slower effect */
+}
+
+/* Main content animation (Coming from Right) */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-5%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Dashboard heading */
+.main-content h1 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Content area */
+.content-area p {
+  color: white;
+}
+
+/* Animation container for optional video or media */
+.animation-container {
+  width: 100%;
+  height: 300px; /* Adjust height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures video fills the space */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    animation: slideInLeft 1.5s ease-out forwards;
+  }
+
+  .main-content {
+    margin-left: 0;
+    transform: translateX(100%);
+    animation: slideInRight 2.5s ease-out forwards;
+  }
+}

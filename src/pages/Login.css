@@ -1,0 +1,114 @@
+/* General styling for body */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #2c3e50; /* Dark background for contrast */
+}
+
+/* Styling for the login container */
+.login-container {
+    background: rgba(223, 207, 207, 0.027);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(141, 198, 10, 0.861);
+    text-align: center;
+    width: 300px;
+    position: relative;
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-100%) scale(0.2); /* Start off-screen to the left */
+    transform-origin: center; /* Ensure the scaling happens from the center */
+    animation: openFromLeft 5s forwards; /* Slower animation (5 seconds) */
+}
+
+/* Animation for the form coming from the left and opening like a book */
+@keyframes openFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) scale(0.2); /* Starts off-screen to the left and small */
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(10%) scale(1.05); /* Moves closer and slightly larger */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1); /* Final position with full opacity */
+    }
+}
+
+/* User icon style */
+.user-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Login title style */
+.login-title {
+    color: white;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Input field group styling */
+.input-group {
+    margin: 10px 0;
+    text-align: left;
+}
+
+/* Label styling for input fields */
+label {
+    color: white;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Styling for the input fields */
+input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #ecf0f1; /* Light gray background */
+    color: #2c3e50; /* Dark text for contrast */
+    font-size: 14px;
+}
+
+/* Focus effect for input fields */
+input:focus {
+    border: 2px solid #3498db; /* Blue border on focus */
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Button hover effect */
+button:hover {
+    background: gray;
+    color: white;
+}

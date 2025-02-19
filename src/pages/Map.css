@@ -1,0 +1,53 @@
+/* Map container with animation */
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    overflow: hidden;
+  }
+  
+  /* Box containing the map */
+  .map-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(141, 198, 10, 0.861);
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(100%); /* Initially off-screen */
+    opacity: 0;
+    animation: slideInBottom 2s ease-out forwards;
+  }
+  
+  /* Slide in animation from bottom */
+  @keyframes slideInBottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-10%);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Map heading */
+  .map-box h2 {
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  /* Error message */
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
