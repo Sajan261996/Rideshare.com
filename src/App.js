@@ -25,7 +25,7 @@ const App = () => {
         .catch((error) => console.error("Error fetching rides:", error));
     }
 
-    // Ensure audio plays on user interaction for browser compatibility
+    // Ensure audio plays on user interaction (fix autoplay issues)
     const playAudio = () => {
       if (audioRef.current) {
         audioRef.current.play().catch((error) => console.error("Audio playback error:", error));
@@ -49,16 +49,17 @@ const App = () => {
     <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY} libraries={["places"]}>
       <Router>
         <div className="app-container">
+          {/* Background Video */}
           <div className="background-animation">
             <video autoPlay loop muted className="background-video">
-              <source src={process.env.PUBLIC_URL + "/media/Animation.mp4"} type="video/mp4" />
+              <source src={`${process.env.PUBLIC_URL}/media/Animation.mp4`} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
 
           {/* Background Audio */}
           <audio ref={audioRef} onEnded={handleAudioEnd}>
-            <source src={process.env.PUBLIC_URL + "/media/background-audio.mp3"} type="audio/mp3" />
+            <source src={`${process.env.PUBLIC_URL}/media/background-audio.mp3`} type="audio/mpeg" />
             Your browser does not support the audio tag.
           </audio>
 
