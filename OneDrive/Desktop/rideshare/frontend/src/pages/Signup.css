@@ -1,0 +1,108 @@
+/* General styling for body */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #2c3e50; /* Dark background for contrast */
+}
+
+/* Container for the signup form */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgba(92, 89, 89, 0.067); /* Light gray background */
+  perspective: 800px; /* For 3D effect */
+}
+
+/* Signup form box */
+.signup-form {
+  background-color: rgba(55, 50, 50, 0.459);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-100%) scale(0.2); /* Start from the top with a small scale */
+  transform-origin: center;
+  animation: openFromTop 5s forwards; /* Slower animation (5 seconds) */
+}
+
+/* Animation for the form coming from the top and opening like a book */
+@keyframes openFromTop {
+  0% {
+      opacity: 0;
+      transform: translateY(-100%) scale(0.2); /* Start off-screen at the top and small */
+  }
+  50% {
+      opacity: 0.5;
+      transform: translateY(10%) scale(1.05); /* Move closer and slightly enlarge */
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0) scale(1); /* Final position with full opacity */
+  }
+}
+
+/* Title styling */
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* Input field styling */
+.signup-form input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+/* Input field focus effect */
+.signup-form input:focus {
+  border-color: #4CAF50; /* Green */
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+.signup-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.signup-form button:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+/* Message styling */
+.signup-message {
+  text-align: center;
+  margin-top: 20px;
+  color: #bbb;
+}
+
+/* Login link */
+.signup-message a {
+  color: #4CAF50;
+  text-decoration: none;
+}

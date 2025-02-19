@@ -1,0 +1,71 @@
+/* Ensure full-screen background video */
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Video Background Styling */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the full screen */
+  z-index: -1; /* Sends video to the background */
+}
+
+/* Overlay for text content */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the text perfectly */
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5); /* Transparent dark overlay for better visibility */
+  padding: 20px 40px;
+  border-radius: 10px;
+  z-index: 1; /* Ensure text is above video */
+  visibility: visible; /* Ensure overlay is visible */
+  opacity: 1; /* Ensure text is visible */
+}
+
+/* Heading styles */
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Paragraph styles */
+p {
+  font-size: 2rem;
+}
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.delay {
+  animation-delay: 1s; /* Delay subtitle fade-in */
+}
