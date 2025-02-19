@@ -25,25 +25,21 @@ const App = () => {
         .catch((error) => console.error("Error fetching rides:", error));
     }
 
-    // Ensure audio plays on user interaction (fix autoplay issues)
+    // Allow audio to play only after user interaction
     const playAudio = () => {
       if (audioRef.current) {
-        audioRef.current.play().catch((error) => console.error("Audio playback error:", error));
+        audioRef.current
+          .play()
+          .then(() => console.log("Audio started"))
+          .catch((error) => console.error("Audio playback error:", error));
       }
     };
-    document.addEventListener("click", playAudio);
 
+    document.addEventListener("click", playAudio);
     return () => {
       document.removeEventListener("click", playAudio);
     };
   }, []);
-
-  const handleAudioEnd = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-  };
 
   return (
     <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY} libraries={["places"]}>
@@ -57,8 +53,8 @@ const App = () => {
             </video>
           </div>
 
-          {/* Background Audio */}
-          <audio ref={audioRef} onEnded={handleAudioEnd}>
+          {/* Background Audio - Added controls for testing */}
+          <audio ref={audioRef} controls muted={false}>
             <source src={`${process.env.PUBLIC_URL}/media/background-audio.mp3`} type="audio/mpeg" />
             Your browser does not support the audio tag.
           </audio>
