@@ -1,0 +1,23 @@
+.wishlist-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .wishlist-icon {
+    font-size: 24px;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .wishlist-count {
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+  }
+  
